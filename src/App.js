@@ -1,23 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+//para utlizar componentes que no se exportan por default 
+//se mete entre llaves
+import HolaMundo, {AdiosMundo} from "./components/HolaMundo";
+import Saludar from './components/Saludar';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <HolaMundo />
+        <AdiosMundo /> */}
+        <Saludar name="Daniel sanchez" edad="26"/>
+        <Saludar name="Nanci Liz" edad="22"/>
       </header>
     </div>
   );
