@@ -7,14 +7,23 @@ import HolaMundo, {AdiosMundo} from "./components/HolaMundo";
 import Saludar from './components/Saludar';
 
 function App() {
+  const user = {
+    nombre: "Daniel sanchez",
+    edad: 26,
+    color: "Azul"
+  };
+
+  const saludarFn = (name) => {
+    console.log("Hola " + name)
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {/* <HolaMundo />
         <AdiosMundo /> */}
-        <Saludar name="Daniel sanchez" edad="26"/>
-        <Saludar name="Nanci Liz" edad="22"/>
+        <Saludar userInfo={user} saludarFn={saludarFn}/>
       </header>
     </div>
   );
