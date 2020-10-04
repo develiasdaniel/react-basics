@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 //para utlizar componentes que no se exportan por default 
@@ -13,9 +13,26 @@ function App() {
     color: "Azul"
   };
 
-  const saludarFn = (name) => {
-    console.log("Hola " + name)
+  const saludarFn = (name, edad) => {
+    //template string
+    console.log(`Hola ${name}, tiene ${edad} años`)
   };
+
+  const [stateCar, setStateCar] = useState(false)
+  //contar las veces que el usuario da click al boton de encender/apagar
+  const [contar, setContar] = useState(0)
+  
+  // useEffect( () => {
+  //   console.log("Total:" +contar)
+  // }, [contar])
+
+  const encenderApagar = () => {
+    //mandar lo contrario de stateCar
+    //setStateCar(!stateCar)
+    //si mandamos el setStateCar en otro componente
+    setStateCar(prevValue => !prevValue)
+    setContar(contar + 1)
+  } 
 
   return (
     <div className="App">
@@ -24,6 +41,9 @@ function App() {
         {/* <HolaMundo />
         <AdiosMundo /> */}
         <Saludar userInfo={user} saludarFn={saludarFn}/>
+        <h3>El coche está: {stateCar ? 'Encendido' : 'Apagado'}</h3>
+        <h4>clicks: {contar}</h4>
+        <button onClick={encenderApagar}>Encender/Apagar</button>
       </header>
     </div>
   );
