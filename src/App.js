@@ -22,9 +22,9 @@ function App() {
   //contar las veces que el usuario da click al boton de encender/apagar
   const [contar, setContar] = useState(0)
   
-  // useEffect( () => {
-  //   console.log("Total:" +contar)
-  // }, [contar])
+  useEffect( () => {
+    console.log("Total:" +contar)
+  }, [contar])
 
   const encenderApagar = () => {
     //mandar lo contrario de stateCar
